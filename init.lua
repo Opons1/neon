@@ -46,7 +46,7 @@ for i = 1, #chars do
     local c = chars:sub(i, i)
     local uc = string.upper(c)
 
-    minetest.register_node("neon:" .. c, {
+    core.register_node("neon:" .. c, {
         description = "Neon light " .. uc,
         tiles = {"neon_" .. c .. ".png"},
         drawtype = "signlike",
@@ -62,12 +62,12 @@ for i = 1, #chars do
 end
 
 
-minetest.register_craftitem("neon:tube", {
+core.register_craftitem("neon:tube", {
     description = "Neon tube",
     inventory_image = "neon_tube.png",
 })
 
-minetest.register_craft({
+core.register_craft({
     output = "neon:tube 20",
     recipe = {
         {"", "default:mese_crystal_fragment", "default:steel_ingot"},
@@ -94,7 +94,7 @@ for char, grid in pairs(patterns) do
         end
     end
 
-    minetest.register_craft({
+    core.register_craft({
         output = "neon:" .. char .. " 1",
         recipe = recipe
     })
